@@ -8,6 +8,23 @@
             </div>
         </th>
     </tr>
+
+    <?php 
+    if(!Ws247_aio_ct_button::is_activated_rel_plugin()){
+    ?>
+    <tr valign="top">
+        <th scope="row" style="padding-top:0; padding-bottom:0;" colspan="2">
+            <div style="color: #fff; padding: 10px; margin-bottom: 10px; background: #ff9800;">
+                <btton data-fancybox="" data-src="#dialog-ws247-aio-pro-noti-show" type="button" id="ws247-aio-pro-add-icon" class="button"><?php _e("Bản PRO", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?></btton> <img height="30" src="<?php echo WS247_AIO_CT_BUTTON_PLUGIN_INC_ASSETS_URL; ?>/loading.svg">
+            </div>
+            <?php require WS247_AIO_CT_BUTTON_PLUGIN_INC_DIR . '/tabs/pro-show.php'; ?>
+        </th>
+    </tr>
+    <?php 
+    }
+    ?>
+
+    <?php do_action( 'ws247_aio_tr_before' ); ?>
     
     <!-- ........................ -->
     <tr valign="top">
@@ -29,34 +46,48 @@
             ?>
             <input placeholder="Số điện thoại" type="text" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" value="<?php echo esc_attr($link); ?>" />
             
-            <?php 
-            $field_name = 'hide_shake_hotline'; 
-            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
-            $hide = Ws247_aio_ct_button::class_get_option($field_name);
-            ?>
-            <input <?php if($hide=='on') echo 'checked'; ?> type="checkbox" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" /><label for="<?php echo esc_html($field); ?>"><?php esc_html_e("Icon hide", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?></label>
+            
+            <div class="checkbox-group-div" style="margin-top:10px;">
+                <span class="checkbox-span">
+                    <?php 
+                    $field_name = 'is_zalo_shake_hotline'; 
+                    $field = Ws247_aio_ct_button::create_option_prefix($field_name);
+                    $hide = Ws247_aio_ct_button::class_get_option($field_name);
+                    ?>
+                    <input data-rel="<?php echo esc_html($field_rel); ?>" <?php if($hide=='on') echo 'checked'; ?> type="checkbox" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" /><label for="<?php echo esc_html($field); ?>"><?php esc_html_e("Zalo link?", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?></label>
+                    <script type="text/javascript">
+                        jQuery(document).ready(function($) {
+                            jQuery("#<?php echo esc_html($field); ?>").click(function(event) {
+                                var zalo_input_id = "#"+jQuery(this).data('rel');
+                                if( jQuery(this).is(":checked") ){
+                                    jQuery(zalo_input_id).attr('placeholder', 'https://zalo.me/tbayvn');
+                                }else{
+                                    jQuery(zalo_input_id).attr('placeholder', '0852080383');
+                                }
+                                
+                            });
+                        });
+                    </script>
+                </span>
 
-            <br/>
+                <span class="checkbox-span">
+                    <?php 
+                    $field_name = 'hide_shake_hotline'; 
+                    $field = Ws247_aio_ct_button::create_option_prefix($field_name);
+                    $hide = Ws247_aio_ct_button::class_get_option($field_name);
+                    ?>
+                    <input <?php if($hide=='on') echo 'checked'; ?> type="checkbox" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" /><label for="<?php echo esc_html($field); ?>"><?php esc_html_e("Icon hide", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?></label>
+                </span>
 
-            <?php 
-            $field_name = 'is_zalo_shake_hotline'; 
-            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
-            $hide = Ws247_aio_ct_button::class_get_option($field_name);
-            ?>
-            <input data-rel="<?php echo esc_html($field_rel); ?>" <?php if($hide=='on') echo 'checked'; ?> type="checkbox" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" /><label for="<?php echo esc_html($field); ?>"><?php esc_html_e("Zalo link?", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?></label>
-            <script type="text/javascript">
-                jQuery(document).ready(function($) {
-                    jQuery("#<?php echo esc_html($field); ?>").click(function(event) {
-                        var zalo_input_id = "#"+jQuery(this).data('rel');
-                        if( jQuery(this).is(":checked") ){
-                            jQuery(zalo_input_id).attr('placeholder', 'https://zalo.me/tbayvn');
-                        }else{
-                            jQuery(zalo_input_id).attr('placeholder', '0852080383');
-                        }
-                        
-                    });
-                });
-            </script>
+                <span class="checkbox-span">
+                    <?php 
+                    $field_name = 'hide_hotline_number_only'; 
+                    $field = Ws247_aio_ct_button::create_option_prefix($field_name);
+                    $hide = Ws247_aio_ct_button::class_get_option($field_name);
+                    ?>
+                    <input <?php if($hide=='on') echo 'checked'; ?> type="checkbox" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" /><label for="<?php echo esc_html($field); ?>"><?php esc_html_e("Chỉ ẩn số điện thoại", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?></label>
+                </span>
+            </div>
         </td>
     </tr>
     
@@ -118,255 +149,29 @@
 			if(!$val) $val = '#ffffff';
             ?>
             <input value="<?php echo esc_attr($val); ?>" class="colorpicker" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" />
-        </td>
-    </tr>
-
-    <!-- ........................ -->
-    <tr valign="top" class="tr-icon-group">
-        <th scope="row">
-            <span class="dashicons dashicons-share"></span> <?php esc_html_e("Zalo", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?>
-        </th>
-        <td>
-            <?php 
-            $field_name = 'company_zalo'; 
-            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
-            $link = Ws247_aio_ct_button::class_get_option($field_name);
-            ?>
-            <input placeholder="Số điện thoại Zalo" type="text" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" value="<?php echo esc_attr($link); ?>" />
-            
-            <?php 
-            $field_name = 'text_company_zalo'; 
-            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
-            $link = Ws247_aio_ct_button::class_get_option($field_name);
-            ?>
-            <input placeholder="Nhắn tin Zalo" type="text" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" value="<?php echo esc_attr($link); ?>" />
-            
-            <?php 
-            $field_name = 'hide_company_zalo'; 
-            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
-            $hide = Ws247_aio_ct_button::class_get_option($field_name);
-            ?>
-            <input <?php if($hide=='on') echo 'checked'; ?> type="checkbox" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" /><label for="<?php echo esc_html($field); ?>"><?php esc_html_e("Icon hide", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?></label>
-        </td>
-        </td>
-    </tr>
-    
-    <tr valign="top" class="tr-icon-group">
-        <th scope="row">
-            <span class="dashicons dashicons-facebook-alt"></span> <?php esc_html_e("Messenger", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?>
-        </th>
-        <td>
-            <?php 
-            $field_name = 'icon_fb_messenger'; 
-            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
-            $link = Ws247_aio_ct_button::class_get_option($field_name);
-            ?>
-            <input placeholder="https://www.messenger.com/t/fanpage123" type="text" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" value="<?php echo esc_attr($link); ?>" />
-            
-            <?php 
-            $field_name = 'text_fb_messenger'; 
-            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
-            $link = Ws247_aio_ct_button::class_get_option($field_name);
-            ?>
-            <input placeholder="Nhắn tin Messenger" type="text" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" value="<?php echo esc_attr($link); ?>" />
-            
-            <?php 
-            $field_name = 'hide_icon_fb_messenger'; 
-            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
-            $hide = Ws247_aio_ct_button::class_get_option($field_name);
-            ?>
-            <input <?php if($hide=='on') echo 'checked'; ?> type="checkbox" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" /><label for="<?php echo esc_html($field); ?>"><?php esc_html_e("Icon hide", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?></label>
-        	<br/>
-            <small>Copy: https://www.messenger.com/t/tkwtbayvn</small>
-        </td>
-    </tr>
-    
-    
-
-    <!-- ........................ -->
-    <tr valign="top" class="tr-icon-group">
-        <th scope="row">
-            <span class="dashicons dashicons-share"></span> <?php esc_html_e("Tiktok", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?>
-        </th>
-        <td>
-            <?php 
-            $field_name = 'company_tiktok'; 
-            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
-            $link = Ws247_aio_ct_button::class_get_option($field_name);
-            ?>
-            <input placeholder="https://www.tiktok.com/@tbayvn" type="text" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" value="<?php echo esc_attr($link); ?>" />
-
-            <?php 
-            $field_name = 'text_company_tiktok'; 
-            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
-            $link = Ws247_aio_ct_button::class_get_option($field_name);
-            ?>
-            <input placeholder="Tiktok link" type="text" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" value="<?php echo esc_attr($link); ?>" />
-            
-            <?php 
-            $field_name = 'hide_company_tiktok'; 
-            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
-            $hide = Ws247_aio_ct_button::class_get_option($field_name);
-            ?>
-            <input <?php if($hide=='on') echo 'checked'; ?> type="checkbox" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" /><label for="<?php echo esc_html($field); ?>"><?php esc_html_e("Icon hide", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?></label>
 
             <br/>
-            <small>Copy: https://www.tiktok.com/@tbayvn</small>
-        </td>
-        </td>
-    </tr>
-    
-    <!-- ........................ -->
-    <tr valign="top" class="tr-icon-group">
-        <th scope="row">
-            <span class="dashicons dashicons-email"></span> <?php esc_html_e("Email", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?>
-        </th>
-        <td>
             <?php 
-            $field_name = 'stt_email'; 
+            $field_name = 'text_contact_bottom'; 
             $field = Ws247_aio_ct_button::create_option_prefix($field_name);
             $link = Ws247_aio_ct_button::class_get_option($field_name);
             ?>
-            <input placeholder="email@gmail.com" type="text" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" value="<?php echo esc_attr($link); ?>" />
-            
-            <?php 
-            $field_name = 'text_stt_email'; 
-            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
-            $link = Ws247_aio_ct_button::class_get_option($field_name);
-            ?>
-            <input placeholder="Email: email@gmail.com" type="text" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" value="<?php echo esc_attr($link); ?>" />
-            
-            <?php 
-            $field_name = 'hide_stt_email'; 
-            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
-            $hide = Ws247_aio_ct_button::class_get_option($field_name);
-            ?>
-            <input <?php if($hide=='on') echo 'checked'; ?> type="checkbox" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" /><label for="<?php echo esc_html($field); ?>"><?php esc_html_e("Icon hide", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?></label>
+            <input placeholder="15, 20, ...." type="text" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" value="<?php echo esc_attr($link); ?>" /> px
+            <small>(<?php esc_html_e("Bottom", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?>)</small>
         </td>
     </tr>
     
-    <!-- ........................ -->
-    <tr valign="top" class="tr-icon-group">
-        <th scope="row">
-            <span class="dashicons dashicons-phone"></span> <?php esc_html_e("Hotline", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?>
-        </th>
-        <td>
-            <?php 
-            $field_name = 'stt_hotline'; 
-            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
-            $link = Ws247_aio_ct_button::class_get_option($field_name);
-            ?>
-            <input type="text" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" value="<?php echo esc_attr($link); ?>" />
-            
-            <?php 
-            $field_name = 'text_stt_hotline'; 
-            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
-            $link = Ws247_aio_ct_button::class_get_option($field_name);
-            ?>
-            <input placeholder="Gọi: 0852.080383" type="text" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" value="<?php echo esc_attr($link); ?>" />
-            
-            <?php 
-            $field_name = 'hide_stt_hotline'; 
-            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
-            $hide = Ws247_aio_ct_button::class_get_option($field_name);
-            ?>
-            <input <?php if($hide=='on') echo 'checked'; ?> type="checkbox" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" /><label for="<?php echo esc_html($field); ?>"><?php esc_html_e("Icon hide", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?></label>
-        </td>
-    </tr>
-    
-    <tr valign="top" class="tr-icon-group">
-        <th scope="row">
-            <span class="dashicons dashicons-instagram"></span> <?php esc_html_e("Instagram", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?>
-        </th>
-        <td>
-            <?php 
-            $field_name = 'company_instagram'; 
-            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
-            $link = Ws247_aio_ct_button::class_get_option($field_name);
-            ?>
-            <input placeholder="https://www.instagram.com/tbayvn" type="text" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" value="<?php echo esc_attr($link); ?>" />
-
-            <?php 
-            $field_name = 'text_company_instagram'; 
-            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
-            $link = Ws247_aio_ct_button::class_get_option($field_name);
-            ?>
-            <input placeholder="Instagram link" type="text" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" value="<?php echo esc_attr($link); ?>" />
-            
-            <?php 
-            $field_name = 'hide_company_instagram'; 
-            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
-            $hide = Ws247_aio_ct_button::class_get_option($field_name);
-            ?>
-            <input <?php if($hide=='on') echo 'checked'; ?> type="checkbox" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" /><label for="<?php echo esc_html($field); ?>"><?php esc_html_e("Icon hide", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?></label>
-
-            <br/>
-            <small>Copy: https://www.instagram.com/tbayvn</small>
-        </td>
-        </td>
+    <tr valign="top">
+        <th scope="row" colspan="2"><div style="color:red; text-transform: uppercase;"><?php esc_html_e("Kéo thả Icon để thay đổi thứ tự", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?> <span class="dashicons dashicons-editor-ol"></span></div></th>
     </tr>
 
-    <tr valign="top" class="tr-icon-group">
-        <th scope="row">
-            <span class="dashicons dashicons-share"></span></span> <?php esc_html_e("Telegram", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?>
-        </th>
-        <td>
-            <?php 
-            $field_name = 'company_telegram'; 
-            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
-            $link = Ws247_aio_ct_button::class_get_option($field_name);
-            ?>
-            <input placeholder="https://www.instagram.com/tbayvn" type="text" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" value="<?php echo esc_attr($link); ?>" />
+    <?php do_action( 'ws247_aio_ct_add_before' ); ?>
 
-            <?php 
-            $field_name = 'text_company_telegram'; 
-            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
-            $link = Ws247_aio_ct_button::class_get_option($field_name);
-            ?>
-            <input placeholder="Telegram link" type="text" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" value="<?php echo esc_attr($link); ?>" />
-            
-            <?php 
-            $field_name = 'hide_company_telegram'; 
-            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
-            $hide = Ws247_aio_ct_button::class_get_option($field_name);
-            ?>
-            <input <?php if($hide=='on') echo 'checked'; ?> type="checkbox" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" /><label for="<?php echo esc_html($field); ?>"><?php esc_html_e("Icon hide", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?></label>
+    <?php do_action( 'ws247_aio_ct_add_my_oicons' ); ?>
 
-            <br/>
-            <small>Copy: https://www.telegram.com/tbayvn</small>
-        </td>
-        </td>
-    </tr>
+    <?php do_action( 'ws247_aio_ct_add_icons' ); ?>
 
-    <!-- ........................ -->
-    <tr valign="top" class="tr-icon-group">
-        <th scope="row">
-            <span class="dashicons dashicons-location"></span> <?php esc_html_e("Google", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?>
-        </th>
-        <td>
-            <?php 
-            $field_name = 'icon_google_map'; 
-            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
-            $link = Ws247_aio_ct_button::class_get_option($field_name);
-            ?>
-            <input placeholder="Địa chỉ công ty" type="text" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" value="<?php echo esc_attr($link); ?>" />
-            
-            <?php 
-            $field_name = 'text_icon_google_map'; 
-            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
-            $link = Ws247_aio_ct_button::class_get_option($field_name);
-            ?>
-            <input placeholder="Chỉ đường bản đồ" type="text" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" value="<?php echo esc_attr($link); ?>" />
-            
-            <?php 
-            $field_name = 'hide_icon_google_map'; 
-            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
-            $hide = Ws247_aio_ct_button::class_get_option($field_name);
-            ?>
-            <input <?php if($hide=='on') echo 'checked'; ?> type="checkbox" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" /><label for="<?php echo esc_html($field); ?>"><?php esc_html_e("Icon hide", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?></label>
-             
-        </td>
-    </tr>
+    <?php do_action( 'ws247_aio_ct_add_after' ); ?>
     
     <tr valign="top">
         <th scope="row">
@@ -452,6 +257,67 @@
             $hide = Ws247_aio_ct_button::class_get_option($field_name);
             ?>
             <input <?php if($hide=='on') echo 'checked'; ?> type="checkbox" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" /><label for="<?php echo esc_html($field); ?>"><?php esc_html_e("Canh ngang trên điện thoại", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?>?</label>
+            <div style="margin-top:10px;"><img src="<?php echo WS247_AIO_CT_BUTTON_PLUGIN_INC_ASSETS_URL; ?>/mobile-icon-verticle.png" /></div>
+        </td>
+    </tr>
+
+    <tr valign="top">
+        <th scope="row">
+            <?php esc_html_e("Hiệu ứng Icon", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?>
+        </th>
+        <td>
+            <?php 
+            $field_name = 'icons_animation'; 
+            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
+            $animation_val = Ws247_aio_ct_button::class_get_option($field_name);
+
+            $arr_animations = array(
+                            '',
+                            'all-ft-animation',
+                            'ws247-aio-ct-cricle-fade', 
+                            'ws247-aio-ct-cricle-zoom');
+
+            $arr_animations = apply_filters( 'ws247_aio_icon_animations', $arr_animations );
+
+            $data_cl = implode(' ', $arr_animations);
+            ?>
+            <select id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" data-cl="<?php echo esc_html($data_cl); ?>">
+                <?php 
+                foreach ($arr_animations as $k => $animation) {
+                    if(!$k){
+                        $animation_name = 'Không có';
+                    }else{
+                        $animation_name = "Hiệu ứng ".$k;
+                    }
+                    ?>
+                    <option <?php if($animation_val==$animation) echo 'selected'; ?> value="<?php echo esc_attr($animation); ?>"><?php esc_html_e($animation_name, WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?></option>
+                    <?php
+                }
+                ?>
+            </select>
+        </td>
+    </tr>
+
+    <?php do_action( 'ws247_aio_ct_icons_group_after' ); ?>
+
+    <tr valign="top">
+        <th scope="row" style="padding-top:0; padding-bottom:0;" colspan="2">
+            <h3 style="margin:0;color:#0055ab;"><span class="dashicons dashicons-arrow-right-alt"></span> <?php esc_html_e("Hộp chat Zalo", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?></h3>
+        </th>
+    </tr>
+
+    <tr valign="top">
+        <th scope="row">
+            <?php esc_html_e("Zalo OA ID", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?>
+        </th>
+        <td>
+            <?php 
+            $field_name = 'zalo_oa_id';
+            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
+            $val = Ws247_aio_ct_button::class_get_option($field_name);
+            ?>
+            <input placeholder="535345342424234" type="text" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" value="<?php echo esc_attr($val); ?>" /> <span>(Zalo Official Account)</span>
+            <div style="margin-top:10px;">Cách lấy Zalo OA ID <a target="_blank" href="https://website366.com/cach-lay-zalo-oa-id/">Xem Hướng Dẫn</a></div>
         </td>
     </tr>
     
@@ -474,6 +340,8 @@
             <textarea style="width:100%;" placeholder="" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>"><?php echo esc_attr($val); ?></textarea>
         </td>
     </tr>
+
+    
     
      <tr valign="top">
         <th scope="row" style="padding-top:0; padding-bottom:0;" colspan="2">
@@ -552,7 +420,7 @@
                     if(!$val) $val = '#ffffff';
                     ?>
                     <label for="<?php echo esc_html($field); ?>"><?php esc_html_e("Màu 1", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?></label>
-                    <input value="<?php echo esc_attr($val); ?>" class="colorpicker" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" />
+                    <input value="<?php echo esc_attr($val); ?>" class="colorpicker custom-color-bg" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" />
                 </div>
 
                 <div>
@@ -563,7 +431,7 @@
                     if(!$val) $val = '#000000';
                     ?>
                     <label for="<?php echo esc_html($field); ?>"><?php esc_html_e("Màu 2", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?></label>
-                    <input value="<?php echo esc_attr($val); ?>" class="colorpicker" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" />
+                    <input value="<?php echo esc_attr($val); ?>" class="colorpicker custom-color-bg" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" />
                 </div>
             </div>
 
@@ -594,5 +462,7 @@
             <input <?php if($hide=='on') echo 'checked'; ?> type="checkbox" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" /><label for="<?php echo esc_html($field); ?>"><?php esc_html_e("Ẩn trước khi trang web được tải", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?>?</label>
         </td>
     </tr>
+
+    <?php do_action( 'ws247_aio_tr_after' ); ?>
     
 </table>

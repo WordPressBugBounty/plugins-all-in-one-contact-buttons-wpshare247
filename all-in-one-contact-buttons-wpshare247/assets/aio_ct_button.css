@@ -1,5 +1,12 @@
 @charset "utf-8";
 /* CSS Document */
+#ws247-aio-ct-button-hl .phonering-alo-phone{
+	left: -50px;
+}#ws247-aio-ct-button-hl.hotline-on-right .phonering-alo-phone{
+	right:110px;
+	left: auto;
+}
+
 .phonering-alo-phone {
 	position: fixed;
 	visibility: hidden;
@@ -205,183 +212,288 @@
 
 
 @-webkit-keyframes phonering-alo-circle-anim {
-0% {
--webkit-transform:rotate(0) scale(.5) skew(1deg);
--webkit-opacity:.1
-}
-30% {
--webkit-transform:rotate(0) scale(.7) skew(1deg);
--webkit-opacity:.5
-}
-100% {
--webkit-transform:rotate(0) scale(1) skew(1deg);
--webkit-opacity:.1
-}
+	0% {
+	-webkit-transform:rotate(0) scale(.5) skew(1deg);
+	-webkit-opacity:.1
+	}
+	30% {
+	-webkit-transform:rotate(0) scale(.7) skew(1deg);
+	-webkit-opacity:.5
+	}
+	100% {
+	-webkit-transform:rotate(0) scale(1) skew(1deg);
+	-webkit-opacity:.1
+	}
 }
 @-webkit-keyframes phonering-alo-circle-fill-anim {
-0% {
--webkit-transform:rotate(0) scale(.7) skew(1deg);
-opacity:.2
-}
-50% {
--webkit-transform:rotate(0) scale(1) skew(1deg);
-opacity:.2
-}
-100% {
--webkit-transform:rotate(0) scale(.7) skew(1deg);
-opacity:.2
-}
+	0% {
+	-webkit-transform:rotate(0) scale(.7) skew(1deg);
+	opacity:.2
+	}
+	50% {
+	-webkit-transform:rotate(0) scale(1) skew(1deg);
+	opacity:.2
+	}
+	100% {
+	-webkit-transform:rotate(0) scale(.7) skew(1deg);
+	opacity:.2
+	}
 }
 @-webkit-keyframes phonering-alo-circle-img-anim {
-0% {
--webkit-transform:rotate(0) scale(1) skew(1deg)
-}
-10% {
--webkit-transform:rotate(-25deg) scale(1) skew(1deg)
-}
-20% {
--webkit-transform:rotate(25deg) scale(1) skew(1deg)
-}
-30% {
--webkit-transform:rotate(-25deg) scale(1) skew(1deg)
-}
-40% {
--webkit-transform:rotate(25deg) scale(1) skew(1deg)
-}
-50% {
--webkit-transform:rotate(0) scale(1) skew(1deg)
-}
-100% {
--webkit-transform:rotate(0) scale(1) skew(1deg)
-}
+	0% {
+	-webkit-transform:rotate(0) scale(1) skew(1deg)
+	}
+	10% {
+	-webkit-transform:rotate(-25deg) scale(1) skew(1deg)
+	}
+	20% {
+	-webkit-transform:rotate(25deg) scale(1) skew(1deg)
+	}
+	30% {
+	-webkit-transform:rotate(-25deg) scale(1) skew(1deg)
+	}
+	40% {
+	-webkit-transform:rotate(25deg) scale(1) skew(1deg)
+	}
+	50% {
+	-webkit-transform:rotate(0) scale(1) skew(1deg)
+	}
+	100% {
+	-webkit-transform:rotate(0) scale(1) skew(1deg)
+	}
 }
 @-webkit-keyframes phonering-alo-circle-anim {
-0% {
--webkit-transform:rotate(0) scale(.5) skew(1deg);
-transform:rotate(0) scale(.5) skew(1deg);
-opacity:.1
-}
-30% {
--webkit-transform:rotate(0) scale(.7) skew(1deg);
-transform:rotate(0) scale(.7) skew(1deg);
-opacity:.5
-}
-100% {
--webkit-transform:rotate(0) scale(1) skew(1deg);
-transform:rotate(0) scale(1) skew(1deg);
-opacity:.1
-}
+	0% {
+	-webkit-transform:rotate(0) scale(.5) skew(1deg);
+	transform:rotate(0) scale(.5) skew(1deg);
+	opacity:.1
+	}
+	30% {
+	-webkit-transform:rotate(0) scale(.7) skew(1deg);
+	transform:rotate(0) scale(.7) skew(1deg);
+	opacity:.5
+	}
+	100% {
+	-webkit-transform:rotate(0) scale(1) skew(1deg);
+	transform:rotate(0) scale(1) skew(1deg);
+	opacity:.1
+	}
 }
 @keyframes phonering-alo-circle-anim {
-0% {
--webkit-transform:rotate(0) scale(.5) skew(1deg);
-transform:rotate(0) scale(.5) skew(1deg);
-opacity:.1
-}
-30% {
--webkit-transform:rotate(0) scale(.7) skew(1deg);
-transform:rotate(0) scale(.7) skew(1deg);
-opacity:.5
-}
-100% {
--webkit-transform:rotate(0) scale(1) skew(1deg);
-transform:rotate(0) scale(1) skew(1deg);
-opacity:.1
-}
+	0% {
+	-webkit-transform:rotate(0) scale(.5) skew(1deg);
+	transform:rotate(0) scale(.5) skew(1deg);
+	opacity:.1
+	}
+	30% {
+	-webkit-transform:rotate(0) scale(.7) skew(1deg);
+	transform:rotate(0) scale(.7) skew(1deg);
+	opacity:.5
+	}
+	100% {
+	-webkit-transform:rotate(0) scale(1) skew(1deg);
+	transform:rotate(0) scale(1) skew(1deg);
+	opacity:.1
+	}
 }
 @-webkit-keyframes phonering-alo-circle-fill-anim {
-0% {
--webkit-transform:rotate(0) scale(.7) skew(1deg);
-transform:rotate(0) scale(.7) skew(1deg);
-opacity:.2
-}
-50% {
--webkit-transform:rotate(0) scale(1) skew(1deg);
-transform:rotate(0) scale(1) skew(1deg);
-opacity:.2
-}
-100% {
--webkit-transform:rotate(0) scale(.7) skew(1deg);
-transform:rotate(0) scale(.7) skew(1deg);
-opacity:.2
-}
+	0% {
+	-webkit-transform:rotate(0) scale(.7) skew(1deg);
+	transform:rotate(0) scale(.7) skew(1deg);
+	opacity:.2
+	}
+	50% {
+	-webkit-transform:rotate(0) scale(1) skew(1deg);
+	transform:rotate(0) scale(1) skew(1deg);
+	opacity:.2
+	}
+	100% {
+	-webkit-transform:rotate(0) scale(.7) skew(1deg);
+	transform:rotate(0) scale(.7) skew(1deg);
+	opacity:.2
+	}
 }
 @keyframes phonering-alo-circle-fill-anim {
-0% {
--webkit-transform:rotate(0) scale(.7) skew(1deg);
-transform:rotate(0) scale(.7) skew(1deg);
-opacity:.2
-}
-50% {
--webkit-transform:rotate(0) scale(1) skew(1deg);
-transform:rotate(0) scale(1) skew(1deg);
-opacity:.2
-}
-100% {
--webkit-transform:rotate(0) scale(.7) skew(1deg);
-transform:rotate(0) scale(.7) skew(1deg);
-opacity:.2
-}
+	0% {
+	-webkit-transform:rotate(0) scale(.7) skew(1deg);
+	transform:rotate(0) scale(.7) skew(1deg);
+	opacity:.2
+	}
+	50% {
+	-webkit-transform:rotate(0) scale(1) skew(1deg);
+	transform:rotate(0) scale(1) skew(1deg);
+	opacity:.2
+	}
+	100% {
+	-webkit-transform:rotate(0) scale(.7) skew(1deg);
+	transform:rotate(0) scale(.7) skew(1deg);
+	opacity:.2
+	}
 }
 @-webkit-keyframes phonering-alo-circle-img-anim {
-0% {
--webkit-transform:rotate(0) scale(1) skew(1deg);
-transform:rotate(0) scale(1) skew(1deg)
-}
-10% {
--webkit-transform:rotate(-25deg) scale(1) skew(1deg);
-transform:rotate(-25deg) scale(1) skew(1deg)
-}
-20% {
--webkit-transform:rotate(25deg) scale(1) skew(1deg);
-transform:rotate(25deg) scale(1) skew(1deg)
-}
-30% {
--webkit-transform:rotate(-25deg) scale(1) skew(1deg);
-transform:rotate(-25deg) scale(1) skew(1deg)
-}
-40% {
--webkit-transform:rotate(25deg) scale(1) skew(1deg);
-transform:rotate(25deg) scale(1) skew(1deg)
-}
-50% {
--webkit-transform:rotate(0) scale(1) skew(1deg);
-transform:rotate(0) scale(1) skew(1deg)
-}
-100% {
--webkit-transform:rotate(0) scale(1) skew(1deg);
-transform:rotate(0) scale(1) skew(1deg)
-}
+	0% {
+	-webkit-transform:rotate(0) scale(1) skew(1deg);
+	transform:rotate(0) scale(1) skew(1deg)
+	}
+	10% {
+	-webkit-transform:rotate(-25deg) scale(1) skew(1deg);
+	transform:rotate(-25deg) scale(1) skew(1deg)
+	}
+	20% {
+	-webkit-transform:rotate(25deg) scale(1) skew(1deg);
+	transform:rotate(25deg) scale(1) skew(1deg)
+	}
+	30% {
+	-webkit-transform:rotate(-25deg) scale(1) skew(1deg);
+	transform:rotate(-25deg) scale(1) skew(1deg)
+	}
+	40% {
+	-webkit-transform:rotate(25deg) scale(1) skew(1deg);
+	transform:rotate(25deg) scale(1) skew(1deg)
+	}
+	50% {
+	-webkit-transform:rotate(0) scale(1) skew(1deg);
+	transform:rotate(0) scale(1) skew(1deg)
+	}
+	100% {
+	-webkit-transform:rotate(0) scale(1) skew(1deg);
+	transform:rotate(0) scale(1) skew(1deg)
+	}
 }
 @keyframes phonering-alo-circle-img-anim {
-0% {
--webkit-transform:rotate(0) scale(1) skew(1deg);
-transform:rotate(0) scale(1) skew(1deg)
+	0% {
+	-webkit-transform:rotate(0) scale(1) skew(1deg);
+	transform:rotate(0) scale(1) skew(1deg)
+	}
+	10% {
+	-webkit-transform:rotate(-25deg) scale(1) skew(1deg);
+	transform:rotate(-25deg) scale(1) skew(1deg)
+	}
+	20% {
+	-webkit-transform:rotate(25deg) scale(1) skew(1deg);
+	transform:rotate(25deg) scale(1) skew(1deg)
+	}
+	30% {
+	-webkit-transform:rotate(-25deg) scale(1) skew(1deg);
+	transform:rotate(-25deg) scale(1) skew(1deg)
+	}
+	40% {
+	-webkit-transform:rotate(25deg) scale(1) skew(1deg);
+	transform:rotate(25deg) scale(1) skew(1deg)
+	}
+	50% {
+	-webkit-transform:rotate(0) scale(1) skew(1deg);
+	transform:rotate(0) scale(1) skew(1deg)
+	}
+	100% {
+	-webkit-transform:rotate(0) scale(1) skew(1deg);
+	transform:rotate(0) scale(1) skew(1deg)
+	}
 }
-10% {
--webkit-transform:rotate(-25deg) scale(1) skew(1deg);
-transform:rotate(-25deg) scale(1) skew(1deg)
+
+.ws247-aio-ct-cricle-fade .icon, .ws247-aio-ct-cricle-fade-item{
+	-moz-transition: all .2s ease-out 0;
+	-o-transition: all .2s ease-out 0;
+	-webkit-transition: all .2s ease-out;
+	-webkit-transition-delay: 0;
+	transition: all .2s ease-out 0;
+	-webkit-animation: pulse-fade 2s ease-out infinite;
+	-moz-animation: pulse-fade 2s ease-out infinite;
+	animation: #fff 2s ease-out infinite;
 }
-20% {
--webkit-transform:rotate(25deg) scale(1) skew(1deg);
-transform:rotate(25deg) scale(1) skew(1deg)
+
+.ws247-aio-ct-cricle-zoom .icon, .ws247-aio-ct-cricle-zoom-item{
+	-moz-transition: all .2s ease-out 0;
+	-o-transition: all .2s ease-out 0;
+	-webkit-transition: all .2s ease-out;
+	-webkit-transition-delay: 0;
+	transition: all .2s ease-out 0;
+	-webkit-animation: pulse-zoom 2s ease-out infinite;
+	-moz-animation: pulse-zoom 2s ease-out infinite;
+	animation: #fff 2s ease-out infinite;
 }
-30% {
--webkit-transform:rotate(-25deg) scale(1) skew(1deg);
-transform:rotate(-25deg) scale(1) skew(1deg)
+
+/*
+**Fade -----------------------------------------------------
+*/
+@-webkit-keyframes pulse-fade {
+	0% {
+	box-shadow:0 0 rgba(0,0,0,1)
+	}
+	50% {
+	box-shadow:0 0 0 8px rgba(0,0,0,0)
+	}
+	100% {
+	box-shadow:0 0 rgba(0,0,0,0)
+	}
 }
-40% {
--webkit-transform:rotate(25deg) scale(1) skew(1deg);
-transform:rotate(25deg) scale(1) skew(1deg)
+@-moz-keyframes pulse-fade {
+	0% {
+	box-shadow:0 0 rgba(255,215,0,1)
+	}
+	50% {
+	box-shadow:0 0 0 8px rgba(255,215,0,0)
+	}
+	100% {
+	box-shadow:0 0 rgba(255,215,0,0)
+	}
 }
-50% {
--webkit-transform:rotate(0) scale(1) skew(1deg);
-transform:rotate(0) scale(1) skew(1deg)
+@keyframes pulse-fade {
+	0% {
+	box-shadow:0 0 rgba(0,0,0,1)
+	}
+	50% {
+	box-shadow:0 0 0 8px rgba(0,0,0,0)
+	}
+	100% {
+	box-shadow:0 0 rgba(0,0,0,0)
+	}
 }
-100% {
--webkit-transform:rotate(0) scale(1) skew(1deg);
-transform:rotate(0) scale(1) skew(1deg)
+
+/*
+**Zoom -----------------------------------------------------
+*/
+@-webkit-keyframes pulse-zoom {
+	0% {
+	-webkit-transform:scale(1);
+	}
+	50% {
+	-webkit-transform:scale(1.1);
+	}
+	100% {
+	-webkit-transform:scale(1);
+	}
 }
+@-moz-keyframes pulse-zoom {
+	0% {
+	-moz-transform:scale(1);
+	}
+	50% {
+	-moz-transform:scale(1.1);
+	}
+	100% {
+	-moz-transform:scale(1);
+	}
+}
+@keyframes pulse-zoom {
+	0% {
+	-moz-transform:scale(1);
+	-ms-transform:scale(1);
+	-webkit-transform:scale(1);
+	transform:scale(1);
+	}
+	50% {
+	-moz-transform:scale(1.1);
+	-ms-transform:scale(1.1);
+	-webkit-transform:scale(1.1);
+	transform:scale(1.1);
+	}
+	100% {
+	-moz-transform:scale(1);
+	-ms-transform:scale(1);
+	-webkit-transform:scale(1);
+	transform:scale(1);
+	}
 }
 
 
@@ -398,7 +510,7 @@ transform:rotate(0) scale(1) skew(1deg)
 	margin:0;
 	padding:0;
 }
-#ft-contact-icons.active{ max-height:500px; overflow:visible; }
+#ft-contact-icons.active{ max-height:2000px; overflow:visible; }
 
 #ft-contact-icons li, #ft-contact-icons .item {
 	margin-bottom: 10px;
@@ -569,6 +681,9 @@ transform:rotate(0) scale(1) skew(1deg)
 }.show-all-icon, .show-all-icon i{
 	color:#ffffff;
 }
+
+#ft-contact-icons.text-is-hide .ab{ display:none; }
+
 
 @media only screen and (max-width: 500px) {
 	#ws247-aio-ct-button-show-all-container.aio-fixed-bt-mb #ft-contact-icons{

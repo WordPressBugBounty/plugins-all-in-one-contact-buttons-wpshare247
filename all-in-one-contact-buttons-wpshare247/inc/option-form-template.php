@@ -1,4 +1,4 @@
-<div id="wle-libs-admin" class="wrap wle-options">
+<div id="wle-libs-admin" class="wrap wle-options all-in-one-contact-buttons-wpshare247">
     <div id="poststuff" class="basic-admin wle-options-area">
         <div class="postbox-container">
             <div class="meta-box-sortables ui-sortable">
