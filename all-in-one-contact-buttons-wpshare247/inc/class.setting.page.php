@@ -72,6 +72,8 @@ if( !class_exists('Ws247_aio_ct_button') ):
 		}
 		
 		public function register_admin_css_js(){
+			$ver = time();
+			
 			wp_enqueue_script('jquery-ui-sortable');
 			wp_enqueue_style( 'wp-color-picker' );
     		wp_enqueue_script( 'wp-color-picker');
@@ -82,9 +84,9 @@ if( !class_exists('Ws247_aio_ct_button') ):
 			wp_enqueue_script( WS247_AIO_CT_BUTTON_PREFIX.'jquery.fancybox.min.js', WS247_AIO_CT_BUTTON_PLUGIN_INC_ASSETS_URL . '/js/fancybox/dist/jquery.fancybox.min.js', array('jquery'), '3.5.7' );
 
 
-    		wp_enqueue_style( WS247_AIO_CT_BUTTON_PREFIX.'aio_ct_button_admin_css', WS247_AIO_CT_BUTTON_PLUGIN_INC_ASSETS_URL . '/aio_ct_button_admin_css.css', false, '1.0' );
+    		wp_enqueue_style( WS247_AIO_CT_BUTTON_PREFIX.'aio_ct_button_admin_css', WS247_AIO_CT_BUTTON_PLUGIN_INC_ASSETS_URL . '/aio_ct_button_admin_css.css', false, $ver );
 
-			wp_enqueue_script( WS247_AIO_CT_BUTTON_PREFIX.'admin_aio_ct_button', WS247_AIO_CT_BUTTON_PLUGIN_INC_ASSETS_URL . '/admin_aio_ct_button.js', array('jquery'), '1.0' );
+			wp_enqueue_script( WS247_AIO_CT_BUTTON_PREFIX.'admin_aio_ct_button', WS247_AIO_CT_BUTTON_PLUGIN_INC_ASSETS_URL . '/admin_aio_ct_button.js', array('jquery'), $ver );
 		}
 		
 		public function add_setting_page() {

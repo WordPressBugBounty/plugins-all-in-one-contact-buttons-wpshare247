@@ -3,7 +3,7 @@
  * Plugin Name: All-in-one contact buttons - WPSHARE247
  * Plugin URI: https://wpshare247.com/
  * Description: Floating click to contact buttons All-In-One
- * Version: 1.4
+ * Version: 1.5
  * Author: Wpshare247.com
  * Author URI: https://wpshare247.com
  * Text Domain: ws247-aio-ct-button

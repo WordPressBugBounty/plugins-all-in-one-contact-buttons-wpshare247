@@ -258,8 +258,14 @@ if( !class_exists('WS247_aio_ct_button_Theme') ):
 								if($field_name=='stt_hotline'){
 									$link = 'tel:'.$link;
 								}
-								if($field_name=='company_zalo'){
+								if($field_name=='company_zalo' && strpos($link, 'zalo.me') === false){
 									$link = 'https://zalo.me/'.$link;
+								}
+								if($field_name=='stt_email'){
+									$link = 'mailto:'.$link;
+								}
+								if($field_name=='icon_google_map'){
+									$link = urldecode('https://maps.google.com/?q='. $link);
 								}
 							?>
 							<div id="<?php echo esc_attr($field_name); ?>" class="<?php echo esc_attr($item_class);?> item aio-ct-icon-new">

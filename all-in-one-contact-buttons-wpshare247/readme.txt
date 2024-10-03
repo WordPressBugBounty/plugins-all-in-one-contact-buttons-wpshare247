@@ -5,7 +5,7 @@ Tags: call button, quick call button, call now button, contact all in one, icon,
 Requires at least: 4.9
 Tested up to: 6.6.2
 Requires PHP: 5.6
-Stable tag: 1.4
+Stable tag: 1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
  
@@ -143,6 +143,9 @@ Tìm **Cấu hình Aio liên hệ** hoặc **Configure Aio Contact** menu.
 = 1.4 =
 * hide hotline number only
 * New action, filter
+
+= 1.5 =
+* Update: link zalo, email, google
 
 == Upgrade Notice ==
 
