@@ -12,6 +12,7 @@ if( !class_exists('Ws247_aio_ct_button') ):
 				$this->slug = WS247_AIO_CT_BUTTON_SETTING_PAGE_SLUG;
 				$this->option_group = self::FIELDS_GROUP;
 				$this->setting_page_url = admin_url('admin.php?page='.$this->slug);
+
 				add_action('admin_head', array( $this, 'admin_head' ) );
 				add_action('admin_menu',  array( $this, 'add_setting_page' ) );
 				add_action('admin_init', array( $this, 'register_plugin_settings_option_fields' ) );
@@ -145,17 +146,33 @@ if( !class_exists('Ws247_aio_ct_button') ):
 											'hide_text_stt_email', 'hide_text_stt_hotline','hide_text_company_instagram',
 											'hide_text_company_telegram','hide_text_icon_google_map',
 											'text_contact_bottom', 'zalo_oa_id', 'icons_animation',
-											'hide_hotline_number_only'
+											'hide_hotline_number_only', 
+											'icon_youtube', 'text_icon_youtube', 'hide_icon_youtube'
 										);
 
+			//----------------
 			$arr_register_fields = apply_filters( 
 											'ws247_aio_register_field', 
 											$arr_register_fields 
 										);
-			
+
 			if($arr_register_fields){
 				foreach($arr_register_fields as $key){
 					$this->register_field($key);
+				}
+			}
+
+			//----------------
+			$arr_cust_sys_fields = array();
+			$arr_cust_sys_fields = apply_filters( 
+											'ws247_aio_register_sys_field', 
+											$arr_cust_sys_fields 
+										);
+			if(is_array($arr_cust_sys_fields)){
+				foreach($arr_cust_sys_fields as $key){
+					$this->register_field($key);
+					$this->register_field('text_'.$key);
+					$this->register_field('hide_'.$key);
 				}
 			}
 		}
@@ -206,6 +223,12 @@ if( !class_exists('Ws247_aio_ct_button') ):
 									'dashicons-location', 'Google', 'Địa chỉ công ty', 'Chỉ đường bản đồ', 
 									'ws247-icon-map', '<i class="fas fa-map-marker" aria-hidden="true"></i>'
 								),
+
+							'icon_youtube'
+								=> array(
+									'dashicons-youtube', 'Youtube', 'https://www.youtube.com/@hocwordpress/videos', 'Kênh Youtube', 
+									'ws247-icon-youtube', '<i class="fa-brands fa-youtube"></i>'
+								),
 						);
 
 			return apply_filters( 'ws247_aio_ct_arr_items', $arr_ );
@@ -247,6 +270,9 @@ if( !class_exists('Ws247_aio_ct_button') ):
 						$font_i = '';
 						$datakey = $field;
 						$dashicons = $arr_item[0];
+						if(!$dashicons && isset($arr_item[5])){
+							$font_i = $arr_item[5];
+						}
 						$label = $arr_item[1];
 						$placeholder = $arr_item[2];
 						$text_placeholder = $arr_item[3];
