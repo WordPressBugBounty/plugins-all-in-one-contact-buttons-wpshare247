@@ -4,6 +4,8 @@
 	margin-bottom: 20px;
 }
 
+.wp247-aio-pl50{ padding-left:10px; }
+
 .ws247-aio-pro-list-icons{
 	display: flex;
     flex-wrap: wrap;
@@ -64,4 +66,23 @@ body.wp247-aio-pro-enable #ws247-aio-pro-tr-icons .tr-icon-group >td{
 
 .checkbox-group-div .checkbox-span{
     margin-right: 10px;
+}
+
+.wp247-aio-r90{
+    transform: rotate(90deg);
+}
+
+.wp247-aio-animate-1 {
+  display: inline-block;
+  position: relative;
+  animation: wp247-slide-x 1s ease-in-out infinite alternate;
+}
+
+@keyframes wp247-slide-x {
+  0% {
+    transform: translateX(0) rotate(-90deg); 
+  }
+  100% {
+    transform: translateX(10px) rotate(-90deg); /* Điều chỉnh mức độ di chuyển tại đây */
+  }
 }

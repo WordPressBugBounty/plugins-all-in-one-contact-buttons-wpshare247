@@ -5,7 +5,7 @@ Tags: call button, quick call button, call now button, contact all in one, icon,
 Requires at least: 4.9
 Tested up to: 6.6.2
 Requires PHP: 5.6
-Stable tag: 1.6
+Stable tag: 1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
  
@@ -37,6 +37,7 @@ https://www.youtube.com/watch?v=f1pxXPS0JiI
 Professional website design - Thiết kế website chuyên nghiệp: [tbay.vn](https://tbay.vn)
 Web design - Thiết kế web trọn gói: [website366.com](https://website366.com)
 Wordpress Share - Học wordpress: [wpshare247.com](https://wpshare247.com)
+Web366AI - Công cụ viết bài bằng AI (Gemini - ChatGPT): [web366ai.com](https://web366ai.com)
 
 == Installation ==
 
@@ -149,6 +150,9 @@ Tìm **Cấu hình Aio liên hệ** hoặc **Configure Aio Contact** menu.
 
 = 1.6 =
 * Update: link youtube
+
+= 1.7 =
+* Update: Slider for Icons
 
 == Upgrade Notice ==
 

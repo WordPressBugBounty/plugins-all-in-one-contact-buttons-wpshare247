@@ -30,6 +30,12 @@ if( !class_exists('WS247_aio_ct_button_Theme') ):
 		
 		static function wle_contact_icons_display(){
 			$arr_field = Ws247_aio_ct_button::get_arr_icons(); 
+			if($arr_field){
+				$arr_ = apply_filters( 'ws247_aio_ct_icons_arr_show', $arr_field );
+			}else{
+				$arr_ = $arr_field;
+			}
+			
 
 			$shake_hotline = Ws247_aio_ct_button::class_get_option('shake_hotline');
 			$hide_shake_hotline = Ws247_aio_ct_button::class_get_option('hide_shake_hotline');
@@ -61,6 +67,7 @@ if( !class_exists('WS247_aio_ct_button_Theme') ):
 			$icon_text_on_left = Ws247_aio_ct_button::class_get_option('icon_text_on_left');
 			$icons_animation = Ws247_aio_ct_button::class_get_option('icons_animation');
 			$hide_hotline_number_only = Ws247_aio_ct_button::class_get_option('hide_hotline_number_only');
+			$ws247_aio_style_icon = Ws247_aio_ct_button::class_get_option('ws247_aio_style_icon');
 
 			if($shake_hotline && $hide_shake_hotline != 'on'){
 
@@ -219,7 +226,46 @@ if( !class_exists('WS247_aio_ct_button_Theme') ):
 					$container_style .= ' aio-has-border'; 
 				}
 			?>
-            <a id="ws247-aio-ct-button-show-all-icon" href="#" class="<?php echo $hide_def;?> js-show-all-icon show-all-icon <?php if($icons_pos!=2) echo 'contact-icons-right'; ?>"><span><?php echo esc_attr($text_contact);?></span><i class="fas fa-long-arrow-alt-up"></i></a>
+
+			<?php 
+			if($ws247_aio_style_icon=='on'){
+				$ws247_aio_style_icon = 1; 
+			}else{
+				$ws247_aio_style_icon = 0; 
+			}
+			
+			?>
+            <a id="ws247-aio-ct-button-show-all-icon" href="#" class="<?php echo $hide_def;?> js-show-all-icon show-all-icon <?php if($icons_pos!=2) echo 'contact-icons-right'; ?> show-all-icon<?php echo $ws247_aio_style_icon; ?>">
+            	<?php 
+            	if($ws247_aio_style_icon && $arr_){
+            		?>
+            		<div class="ws247-aio-style-icon<?php echo $ws247_aio_style_icon; ?>">
+	            		<div class="ws247-aio-animation-effect-icons">
+	            			<?php 
+	            			foreach ($arr_ as $field_name => $arr_item) {
+	            				$is_custom_f = isset($arr_item['custom']) ? $arr_item['custom'] : 0; 
+	            				if($is_custom_f){
+	            					$item_font = $arr_item['font_i'];
+	            				}else{
+	            					$item_font = isset($arr_item[5]) ? $arr_item[5] : '';
+	            				}
+	            				if($item_font){
+	            				?>
+	            				<span class="icon"><?php echo ($item_font);?></span>
+	            				<?php
+	            				}
+	            			}
+	            			?>
+	            		</div>
+            		</div>
+            		<?php
+            	}else{
+            		?>
+            		<span><?php echo esc_attr($text_contact);?></span><i class="fas fa-long-arrow-alt-up"></i>
+            		<?php
+            	}
+            	?>
+           	</a>
 
             <?php 
 	            $hide_text_clss = '';
@@ -232,8 +278,8 @@ if( !class_exists('WS247_aio_ct_button_Theme') ):
 				<div id="ft-contact-icons-out-m" class="<?php echo $container_style; ?> <?php echo $icons_animation; ?> <?php if($icon_text_on_left) echo 'ft-icon-left'; ?>">
 					
 					<?php 
-					if($arr_field){ 
-						$arr_ = apply_filters( 'ws247_aio_ct_icons_arr_show', $arr_field ); 
+					if($arr_){ 
+						//$arr_ = apply_filters( 'ws247_aio_ct_icons_arr_show', $arr_field ); 
 						$s_tr_html = '';
 						ob_start();
 						foreach ($arr_ as $field_name => $arr_item) {

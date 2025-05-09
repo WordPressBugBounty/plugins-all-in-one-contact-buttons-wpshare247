@@ -684,6 +684,56 @@
 
 #ft-contact-icons.text-is-hide .ab{ display:none; }
 
+#ws247-aio-ct-button-show-all-icon.show-all-icon1{
+	padding: 0 !important;
+	border-radius: 100%;
+}
+.ws247-aio-style-icon1 {
+  width: 60px;
+  height: 60px;
+  overflow: hidden;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ws247-aio-animation-effect-icons {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.ws247-aio-animation-effect-icons .icon {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: all 0.5s ease;
+  font-size: 24px;
+}
+
+.ws247-aio-animation-effect-icons .icon.active {
+  left: 0;
+  opacity: 1;
+}
+
+.ws247-aio-animation-effect-icons .icon.exit {
+  left: -100%;
+  opacity: 0;
+}
+
+.ws247-aio-animation-effect-icons .icon i{
+	transform:unset !important;
+	margin: 0;
+}
+
 
 @media only screen and (max-width: 500px) {
 	#ws247-aio-ct-button-show-all-container.aio-fixed-bt-mb #ft-contact-icons{

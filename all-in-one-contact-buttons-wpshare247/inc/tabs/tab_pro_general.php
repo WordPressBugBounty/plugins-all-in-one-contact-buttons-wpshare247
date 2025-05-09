@@ -2,6 +2,11 @@
     <!--List field here .....-->
     <tr valign="top">
         <th scope="row" style="padding-top:0; padding-bottom:0;" colspan="2">
+            <div style="color: #fff; padding: 10px; margin-bottom: 10px; background: #2396d0;">
+                <strong>🔥 Tải ngay plugin tạo nội dung bằng Công cụ AI <a style="text-decoration: none;color: #FFEB3B;
+" href="https://wpshare247.com/plugin/web366-ai-writer?src=plugin-aio-btns" target="_blank"><span class="dashicons dashicons-download wp247-aio-r90 wp247-aio-animate-1"></span> <span class="wp247-aio-pl50">Web366 Ai Writer ✨</span></a></strong>
+            </div>
+
             <div style="color: #fff; padding: 10px; margin-bottom: 10px; background: #00aff2;">
                 <strong>Hướng dẫn sử dụng tại link này <a style="text-decoration: none;color: #ffffff;
 " href="https://www.youtube.com/watch?v=eDXc36xI9E0" target="_blank"><span class="dashicons dashicons-video-alt3"></span> Video</a></strong>
@@ -158,6 +163,15 @@
             ?>
             <input placeholder="15, 20, ...." type="text" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" value="<?php echo esc_attr($link); ?>" /> px
             <small>(<?php esc_html_e("Bottom", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?>)</small>
+            <br/>
+            <br/>
+
+            <?php 
+            $field_name = 'ws247_aio_style_icon'; 
+            $field = Ws247_aio_ct_button::create_option_prefix($field_name);
+            $hide = Ws247_aio_ct_button::class_get_option($field_name);
+            ?>
+            <input <?php if($hide=='on') echo 'checked'; ?> type="checkbox" id="<?php echo esc_html($field); ?>" name="<?php echo esc_html($field); ?>" /><label for="<?php echo esc_html($field); ?>"><?php esc_html_e("Hiệu ứng icon lần lược", WS247_AIO_CT_BUTTON_TEXTDOMAIN); ?></label>
         </td>
     </tr>
     

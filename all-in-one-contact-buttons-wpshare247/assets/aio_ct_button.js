@@ -19,4 +19,32 @@ document.addEventListener("DOMContentLoaded", (event) => {
 		document.getElementById("ws247-aio-ct-button-show-all-icon").click();
 		return;
 	});
+
+	//---------
+	ws247_aio_animation_effect_icons_init();
+
 });
+
+function ws247_aio_animation_effect_icons_init(){
+	const container = document.querySelector(".ws247-aio-animation-effect-icons");
+    if (!container) return; 
+
+    const icons = container.querySelectorAll(".icon");
+    if (icons.length === 0) return;
+
+    let current = 0;
+    const delay = 1500;
+
+    function showNextIcon() {
+      icons.forEach((icon) => icon.classList.remove("active", "exit"));
+
+      const prev = (current - 1 + icons.length) % icons.length;
+      icons[prev].classList.add("exit");
+      icons[current].classList.add("active");
+
+      current = (current + 1) % icons.length;
+    }
+
+    showNextIcon();
+    setInterval(showNextIcon, delay);
+}

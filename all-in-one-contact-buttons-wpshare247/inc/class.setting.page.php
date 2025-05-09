@@ -147,7 +147,7 @@ if( !class_exists('Ws247_aio_ct_button') ):
 											'hide_text_company_telegram','hide_text_icon_google_map',
 											'text_contact_bottom', 'zalo_oa_id', 'icons_animation',
 											'hide_hotline_number_only', 
-											'icon_youtube', 'text_icon_youtube', 'hide_icon_youtube'
+											'icon_youtube', 'text_icon_youtube', 'hide_icon_youtube', 'ws247_aio_style_icon'
 										);
 
 			//----------------
